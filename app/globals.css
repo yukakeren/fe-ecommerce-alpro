@@ -1,32 +1,49 @@
 @import "tailwindcss";
 
-/* :root {
+:root {
   --background: #ffffff;
   --foreground: #171717;
-} */
-
-:root {
-  --primary: #0f52ba;
-  --secondary: #89cff0;
-  --bg: #f6f7f9;
+  --primary: #171717;
+  --secondary: #e5e5e5;
+  --muted: #f5f5f5;
+  --border: #e5e5e5;
+  --dot-color: #d4d4d4;
 }
-
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #ededed;
+  --secondary: #262626;
+  --muted: #171717;
+  --border: #262626;
+  --dot-color: #262626;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  
+  /* Dotted line aesthetic pattern for the background */
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Base transitions for dark mode toggle on all elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }

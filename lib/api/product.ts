@@ -10,8 +10,12 @@ export const ProductAPI = {
     return products.find((p) => p.id === Number(id))
   },
 
-  getCategories: async (): Promise<string[]> => {
-    return [...new Set(products.map((p) => p.category))]
+  getCategories: async (): Promise<{ name: string; count: number }[]> => {
+    const categories = [...new Set(products.map((p) => p.category))]
+    return categories.map((cat) => ({
+      name: cat,
+      count: products.filter((p) => p.category === cat).length,
+    }))
   },
 
   getByCategory: async (category: string): Promise<Product[]> => {

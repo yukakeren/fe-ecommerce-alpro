@@ -6,9 +6,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 alproshop/
 ├── app/                          ← Next.js App Router
-│   ├── layout.tsx                ← Root layout (Navbar, Providers)
+│   ├── layout.tsx                ← Root layout (Nav/bar, Providers)
 │   ├── page.tsx                  ← Home page /
-│   ├── products/
+│   ├── products
 │   │   ├── page.tsx              ← Products list /products
 │   │   └── [id]/
 │   │       └── page.tsx          ← Product detail /products/[id]
